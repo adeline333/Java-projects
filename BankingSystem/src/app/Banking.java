@@ -6,11 +6,8 @@
 
 package app;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import static java.sql.DriverManager.getConnection;
-import java.util.Scanner;
 import java.sql.*;
+import java.util.Scanner;
 
 
 /**
@@ -254,7 +251,79 @@ public class Banking {
             }
             break;
 
-            
+           
+                        case 5:
+                            try {
+                        // Step 1: Create / Establish connection
+                        Connection con = DriverManager.getConnection(db_url, username, password);
+
+                        // Step 2: Create Statement
+                        Statement statement = con.createStatement();
+                        String sql = "SELECT * FROM Customer";
+                        // Step 3: Execute the query
+                        ResultSet rs = statement.executeQuery(sql);
+                        int counter = 0;
+                        while (rs.next()){
+                            counter++;
+                            System.out.println("Customer "+counter);
+                            System.out.println("---------------");
+                            System.out.println("NationalId: "+ rs.getString("nId"));
+                            System.out.println("Names: "+ rs.getString("names"));
+                            System.out.println("Age: "+ rs.getString("age"));
+                            System.out.println("Phone Number: "+ rs.getString("phone_number"));
+                            System.out.println("Account Number: "+ rs.getString("account_number"));
+                        }
+                        // Close connection
+                        con.close();
+                        
+
+                    }catch(Exception ex){
+                        ex.printStackTrace();
+                    }
+                       System.out.println("Option 5 Selected ");
+                       System.out.println("Enter yes to contin1ue or No to quit");  
+                        option=sc.next();
+                        if(option.equalsIgnoreCase("yes")){
+                            condition =true;
+                        }
+                        
+                        else if(option.equalsIgnoreCase("No")){
+                            condition= false;
+                        }
+                        else{
+                             System.out.println("Wrong Answer  \n Systen decided to continue");   
+                              condition=false;
+                        }
+                       break;
+                       
+                       
+                       
+                       
+                        case 0:
+                       System.out.println("Thank you for using the system ");
+                       System.exit(choice);
+                       condition=false;
+                       break;
+                        default:
+                       System.out.println("Wrong Choice");    
+                        System.out.println("Enter yes to continue or No to quit");  
+                        option=sc.next();
+                        if(option.equalsIgnoreCase("yes")){
+                            condition =true;
+                        }
+                        
+                        else if(option.equalsIgnoreCase("No")){
+                            condition= false;
+                        }
+                        else{
+                             System.out.println("Wrong Answer \n Systen decided to continue");   
+                             condition=false;
+                        }
+                        
+                        
+
+               }
+         }    
        
                    
     }
