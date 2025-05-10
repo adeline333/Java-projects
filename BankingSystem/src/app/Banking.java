@@ -168,6 +168,91 @@ public class Banking {
     break;
 
     
+     
+     
+            case 3:
+            System.out.println("Finding a customer by National ID");
+            System.out.print("Enter National ID: ");
+            nationalId = sc.next();
+
+            try {
+                // Step 1: Establish a connection
+                Connection con = DriverManager.getConnection(db_url, username, password);
+
+                // Step 2: Create PreparedStatement to prevent SQL injection
+                String sql = "SELECT * FROM Customer WHERE nId = ?";
+                PreparedStatement stmt = con.prepareStatement(sql);
+                stmt.setString(1, nationalId);
+
+                // Step 3: Execute query
+                ResultSet rs = stmt.executeQuery();
+                if (rs.next()) {
+                    System.out.println("===============================");
+                    System.out.println("Customer Found!");
+                    System.out.println("===============================");
+                    System.out.println("National ID: " + rs.getString("nId"));
+                    System.out.println("Name: " + rs.getString("names"));
+                    System.out.println("Age: " + rs.getInt("age"));
+                    System.out.println("Phone Number: " + rs.getString("phone_number"));
+                    System.out.println("Account Number: " + rs.getString("account_number"));
+                    System.out.println("===============================");
+                } else {
+                    System.out.println("Customer with ID " + nationalId + " not found.");
+                }
+
+                // Step 4: Close connection
+                con.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            break;
+
+
+
+            case 4:
+            System.out.println("Deleting a customer");
+            System.out.print("Enter National ID of the customer to delete: ");
+            nationalId = sc.next();
+
+            try {
+                // Step 1: Establish a connection
+                Connection con = DriverManager.getConnection(db_url, username, password);
+
+                // Step 2: Check if customer exists
+                String checkSql = "SELECT * FROM Customer WHERE nId = ?";
+                PreparedStatement checkStmt = con.prepareStatement(checkSql);
+                checkStmt.setString(1, nationalId);
+                ResultSet rs = checkStmt.executeQuery();
+
+                if (rs.next()) {
+                    // Step 3: Confirm deletion
+                    System.out.print("Are you sure you want to delete this customer? (yes/no): ");
+                    String confirm = sc.next();
+                    if (confirm.equalsIgnoreCase("yes")) {
+                        // Step 4: Delete customer from database
+                        String deleteSql = "DELETE FROM Customer WHERE nId = ?";
+                        PreparedStatement deleteStmt = con.prepareStatement(deleteSql);
+                        deleteStmt.setString(1, nationalId);
+                        int rowsDeleted = deleteStmt.executeUpdate();
+
+                        if (rowsDeleted > 0) {
+                            System.out.println("Customer deleted successfully!");
+                        } else {
+                            System.out.println("Failed to delete customer.");
+                        }
+                    } else {
+                        System.out.println("Deletion cancelled.");
+                    }
+                } else {
+                    System.out.println("Customer with ID " + nationalId + " not found.");
+                }
+
+                // Step 5: Close connection
+                con.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            break;
 
             
        
