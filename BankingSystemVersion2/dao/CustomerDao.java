@@ -74,6 +74,29 @@ public class CustomerDao {
     }
 }
 
+public Customer getCustomerById(String id) {
+    try {
+        Connection con = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+        PreparedStatement pst = con.prepareStatement("SELECT * FROM customer WHERE nid = ?");
+        pst.setString(1, id);
+        
+      ResultSet resultSet = pst.executeQuery();
+        if (resultSet.next()) {
+            Customer customer = new Customer();
+            customer.setNid(resultSet.getString("nid"));
+            customer.setNames(resultSet.getString("names"));
+            customer.setAge(resultSet.getInt("age"));
+            customer.setPhone_number(resultSet.getString("phone_number"));
+            customer.setAccount_number(resultSet.getString("account_number"));
+            return customer;
+        } else {
+            return null; // No customer found with that ID
+        }
+    } catch (Exception ex) {
+        ex.printStackTrace();
+        return null;
+    }
+}
 
 
          
