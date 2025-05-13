@@ -52,5 +52,29 @@ public class CustomerDao {
          
          
          }
+
+
+    public int updateCustomer(Customer customerObj) {
+    try {
+        Connection con = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+        PreparedStatement pst = con.prepareStatement(
+            "UPDATE customer SET names = ?, age = ?, phone_number = ?, account_number = ? WHERE nid = ?");
+        pst.setString(1, customerObj.getNames());
+        pst.setInt(2, customerObj.getAge());
+        pst.setString(3, customerObj.getPhone_number());
+        pst.setString(4, customerObj.getAccount_number());
+        pst.setString(5, customerObj.getNid());
+
+        int rowsAffected = pst.executeUpdate();
+        con.close();
+        return rowsAffected;
+    } catch (Exception ex) {
+        ex.printStackTrace();
+        return 0;
+    }
+}
+
+
+
          
 }
