@@ -99,5 +99,22 @@ public Customer getCustomerById(String id) {
 }
 
 
+
+public int deleteCustomer(String nid) {
+    try {
+        Connection con = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+        PreparedStatement pst = con.prepareStatement("DELETE FROM customer WHERE nid = ?");
+        pst.setString(1, nid);
+
+        int rowsAffected = pst.executeUpdate();
+        con.close();
+        return rowsAffected;
+    } catch (Exception ex) {
+        ex.printStackTrace();
+        return 0;
+    }
+}
+
+
          
 }
