@@ -116,5 +116,60 @@ public int deleteCustomer(String nid) {
 }
 
 
+
+public Customer searchCustomer(String nid) {
+    try {
+        Connection con = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+        PreparedStatement pst = con.prepareStatement("SELECT * FROM customer WHERE nid = ?");
+        pst.setString(1, nid);
+
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+            return new Customer(
+                rs.getString("nid"),
+                rs.getString("names"),
+                rs.getInt("age"),
+                rs.getString("phone_number"),
+                rs.getString("account_number")
+            );
+        }
+        con.close();
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+    return null;
+}
+
+
+public List<Customer> getAllCustomers() {
+    List<Customer> customers = new ArrayList<>();
+    try {
+        Connection con = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM customer");
+
+        while (rs.next()) {
+            Customer customer = new Customer(
+                rs.getString("nid"),
+                rs.getString("names"),
+                rs.getInt("age"),
+                rs.getString("phone_number"),
+                rs.getString("account_number")
+            );
+            customers.add(customer);
+        }
+
+        con.close();
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+    return customers;
+}
+
+         
+         
+
+
+
          
 }
