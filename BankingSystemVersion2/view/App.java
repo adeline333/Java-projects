@@ -84,5 +84,42 @@ public class App {
                           }
                        
                         break;
+
+
+                                         case 2:
+    System.out.println("Enter the ID of the customer you want to update:");
+    id = sc.next(); // Get the ID of the customer to update
+
+    // Create a new Customer object
+    customerObj = dao.getCustomerById(id); // You will create this method to fetch a customer by ID
+    if (customerObj != null) {
+        System.out.println("Enter new name (Leave blank to keep the current name):");
+        sc.nextLine(); 
+        String newName = sc.nextLine();
+        if (!newName.isEmpty()) customerObj.setNames(newName);
+
+        System.out.println("Enter new age (Leave blank to keep the current age):");
+        String ageInput = sc.nextLine();
+        if (!ageInput.isEmpty()) customerObj.setAge(Integer.parseInt(ageInput));
+
+        System.out.println("Enter new phone number (Leave blank to keep the current phone number):");
+        String newPhone = sc.nextLine();
+        if (!newPhone.isEmpty()) customerObj.setPhone_number(newPhone);
+
+        System.out.println("Enter new account number (Leave blank to keep the current account number):");
+        String newAccount = sc.nextLine();
+        if (!newAccount.isEmpty()) customerObj.setAccount_number(newAccount);
+
+        int rowsAffectedInUpdate = dao.updateCustomer(customerObj);
+        if (rowsAffectedInUpdate > 0) {
+            System.out.println("Customer updated successfully!");
+        } else {
+            System.out.println("Customer update failed.");
+        }
+    } else {
+        System.out.println("Customer not found.");
+    }
+    break;
+
                         
                 }
