@@ -121,5 +121,20 @@ public class App {
     }
     break;
 
+
+
+
+
+                    case 3:
+    System.out.println("Enter the ID of the customer to delete: ");
+    String deleteId = sc.next();
+    
+    int deleteResult = dao.deleteCustomer(deleteId);
+    if (deleteResult > 0) {
+        System.out.println("Customer deleted successfully.");
+    } else {
+        System.out.println("Customer not found.");
+    }
+    break;
                         
                 }
