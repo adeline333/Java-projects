@@ -136,5 +136,29 @@ public class App {
         System.out.println("Customer not found.");
     }
     break;
+
+
+
+
+             
+    case 4:  // Assuming case 4 is for searching
+    System.out.println("Enter the ID of the customer to search: ");
+    String searchId = sc.next();
+    
+    Customer foundCustomer = dao.searchCustomer(searchId);
+    if (foundCustomer != null) {
+        System.out.println("Customer Details:");
+        System.out.println("ID: " + foundCustomer.getNid());
+        System.out.println("Name: " + foundCustomer.getNames());
+        System.out.println("Age: " + foundCustomer.getAge());
+        System.out.println("Phone Number: " + foundCustomer.getPhone_number());
+        System.out.println("Account Number: " + foundCustomer.getAccount_number());
+    } else {
+        System.out.println("Customer not found.");
+    }
+    break;
+
+
+
                         
                 }
