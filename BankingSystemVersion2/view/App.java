@@ -160,5 +160,39 @@ public class App {
 
 
 
+            
+    case 5:
+    List<Customer> customers = dao.getAllCustomers();
+    if (customers.isEmpty()) {
+        System.out.println("No customers found.");
+    } else {
+        System.out.println("================ CUSTOMER LIST ================");
+        for (Customer c : customers) {
+            System.out.println("ID: " + c.getNid());
+            System.out.println("Name: " + c.getNames());
+            System.out.println("Age: " + c.getAge());
+            System.out.println("Phone: " + c.getPhone_number());
+            System.out.println("Account Number: " + c.getAccount_number());
+            System.out.println("------------------------------------------");
+        }
+    }
+    break;
+
+    
+    
+    
+    
+    
+    
+    
+                        
+                    case 0:
+                        System.out.println("Thank you for using the system");
+                        System.exit(0);
+                        break;
+                        
+                        
+                        
+
                         
                 }
