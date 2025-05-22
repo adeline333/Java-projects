@@ -8,10 +8,6 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import model.Customer;
 
 
@@ -75,6 +71,26 @@ public class CustomerDao {
         }
         return 0;
     }
+
+    // delete by nid
+    public int deleteCustomer(Customer custObj) {
+    try {
+        Connection con = DriverManager.getConnection(jdbcurl, dbUsername, dbPasswd);
+        String sql = "DELETE FROM customers WHERE nid = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+
+        pst.setString(1, custObj.getNid()); 
+
+        int rowsAffected = pst.executeUpdate();
+
+        con.close(); 
+
+        return rowsAffected;
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+    return 0;
+}
 
 
 }
