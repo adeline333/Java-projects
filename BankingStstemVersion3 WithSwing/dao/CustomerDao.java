@@ -93,4 +93,34 @@ public class CustomerDao {
 }
 
 
+public Customer findCustomerById(Customer custObj) {
+    try {
+        Connection con = DriverManager.getConnection(jdbcurl, dbUsername, dbPasswd);
+        String sql = "SELECT * FROM customers WHERE nid = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, custObj.getNid());
+        ResultSet rs = pst.executeQuery();
+
+        Customer theCustomer = new Customer();
+        if (rs.next()) {
+            theCustomer.setAccount_number(rs.getString("account_number"));
+            theCustomer.setAge(rs.getInt("age")); 
+            theCustomer.setNames(rs.getString("names")); 
+            theCustomer.setPhone_number(rs.getString("phone_number")); 
+            theCustomer.setNid(rs.getString("nid"));
+        }
+
+        
+        con.close();
+
+        return theCustomer;
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+    return null; 
+}
+
+    
+
+
 }
