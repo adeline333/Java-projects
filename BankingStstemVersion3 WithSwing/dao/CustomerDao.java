@@ -122,5 +122,35 @@ public Customer findCustomerById(Customer custObj) {
 
     
 
+public List<Customer> findAllCustomer() {
+    try {
+        Connection con = DriverManager.getConnection(jdbcurl, dbUsername, dbPasswd);
+        String sql = "SELECT * FROM customers"; 
+        PreparedStatement pst = con.prepareStatement(sql);
+        
+        ResultSet rs = pst.executeQuery();
+        List<Customer> customerList = new ArrayList<>();
+        
+        while (rs.next()) { 
+            Customer custObj = new Customer();
+            custObj.setAccount_number(rs.getString("account_number"));
+            custObj.setNames(rs.getString("names"));
+            custObj.setPhone_number(rs.getString("phone_number"));
+            custObj.setAge(rs.getInt("age"));
+            custObj.setNid(rs.getString("nid"));
+            customerList.add(custObj);
+        }
+        
+       
+        con.close(); 
+        return customerList; 
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+    
+    return null;
+}
+
+
 
 }
