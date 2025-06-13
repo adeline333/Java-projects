@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/model/Department.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/model/User.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/model/Salary.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/model/Employee.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/view/SalaryForm.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/view/DepartmentForm.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/controller/SalaryClientController.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/controller/DepartmentClientController.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/service/EmployeeInterface.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/service/SalaryInterface.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/view/SessionManager.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/service/UserInterface.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/service/RoleInterface.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/view/EmployeeForm.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/view/logInnForm.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/service/DepartmentInterface.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/view/OTPService.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/controller/ClientConnector.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/controller/EmployeeClientController.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/view/TestClient.java</file>
+            <file>file:/C:/Users/adeli/OneDrive/Documents/NetBeansProjects/EmployeeMgtSystemClient%7B26252%7D/src/model/Role.java</file>
+        </group>
+    </open-files>
+</project-private>
